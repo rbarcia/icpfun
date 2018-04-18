@@ -7,11 +7,11 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-user:
-password:
+user: admin
+password: passw0rd
 
 service:
-  name: 
+  name: couchdb
   type: ClusterIP
   externalPort: 5984
   internalPort: 5984
@@ -43,3 +43,8 @@ labels:
   datastore: couchdb
 
 nodename: 
+
+bash:
+  image:
+    repository: ibmcase/bluecompute-bash-curl-ssl
+    tag: latest
