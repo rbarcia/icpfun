@@ -22,7 +22,7 @@ spec:
              "name": "bluecompute-customer-wait-for-customer-service",
              "image": "{{ .Values.bash.image.repository }}:{{ .Values.bash.image.tag }}",
              "imagePullPolicy": "IfNotPresent",
-             "command": ["/bin/bash", "-c", "until curl --max-time 1 http://{{ .Release.Name }}-{{ .Values.service.name }}:{{ .Values.service.externalPort }}; do echo waiting for customer-service; sleep 10; done;"]
+             "command": ["/bin/bash", "-c", "until curl --max-time 1 http://{{ .Release.Name }}-{{ .Values.service.name }}:{{ .Values.service.externalPort }}; do echo waiting for customer-service; sleep 10; done;sleep 60;"]
           }
         ]'
     spec:
@@ -33,7 +33,9 @@ spec:
         command: ["/bin/bash", "-c" ]
         args:
         - >
-		 curl -k -X POST -H "Content-Type: application/json" \
-			-d '{"username": "foo", "password": "bar", "firstName": "foo", "lastName": "bar", "email": "foo@bar.com"}' \
-			<cloudant URL>/customers
+                sleep 20;
+                curl -X PUT http://admin:passw0rd@{{ .Release.Name }}-{{ .Values.service.name }}:{{ .Values.service.externalPort }}/customers;
+                curl -k -X POST -H "Content-Type: application/json" \
+                        -d '{"username": "foo", "password": "bar", "firstName": "foo", "lastName": "bar", "email": "foo@bar.com"}' \
+                        http://admin:passw0rd@{{ .Release.Name }}-{{ .Values.service.name }}:{{ .Values.service.externalPort }}/customers;
         imagePullPolicy: IfNotPresent
