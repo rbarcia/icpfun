@@ -7,10 +7,10 @@ global:
 
 image:
   repository: ibmcase/bluecompute-mysql
-  tag: test
+  tag: latest
   pullPolicy: IfNotPresent
 
-dbname: inventorydb
+dbname: ordersdb
 user: dbuser
 password: password
 rootPassword: admin123
@@ -19,7 +19,7 @@ server_id: 1
 max_servers: 4
 
 binding:
-  name: binding-mysql
+  name: binding-ordersdb-mysql
 
 persistence:
   enabled: false
@@ -33,10 +33,15 @@ resources:
     cpu: 100m
 
 service:
-  name: mysql
+  name: orders-mysql
   type: ClusterIP
   externalPort: 3306
   internalPort: 3306
+
+dataloader:
+  image:
+    repository: ibmcloudacademy/mysql-loader
+    tag: v1
 
 busybox:
   image:
