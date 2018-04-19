@@ -1,11 +1,6 @@
-{{ if not .Values.global.hs256key.secretName }}
 apiVersion: v1
 data:
-  {{ if .Values.global }}
-  key: {{ .Values.global.hs256key.secret | b64enc }}
-  {{ else }}
-  key: {{ (.Values.hs256key.secret | default (randAlphaNum 256)) | b64enc }}
-  {{ end }}
+  key: {{ .Values.global.hs256key.secret | b64enc | quote }}
 kind: Secret
 metadata:
   labels:
@@ -13,7 +8,6 @@ metadata:
     app: bluecompute
     tier: backend
     micro: customer
-  name: "{{ .Chart.Name }}-{{ .Values.hs256key.secretName }}"
+  name: "{{ .Release.Name }}-{{ .Values.hs256key.secretName }}"
   namespace: {{ .Release.Namespace }}
 type: Opaque
-{{ end }}
