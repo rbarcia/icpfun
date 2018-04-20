@@ -25,7 +25,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 
 {{- define "customerUrl" -}}
   {{- if .Values.customer.service.url -}}
-    {{ .Values.service.customer.url }}
+    {{ .Values.customer.service.url }}
   {{- else -}}
     {{/* assume one is installed with release */}}
     {{- printf "http://%s-customer:8080" .Release.Name -}}
