@@ -38,7 +38,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "catalogHost" -}}
   {{- if .Values.services.catalog.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.catalog.host }}
+    {{- .Values.services.catalog.host -}}
   {{- else -}}
     {{/* assume one is installed with the release */}}
     {{- printf "%s-catalog" .Release.Name -}}
@@ -48,7 +48,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "catalogPort" -}}
   {{- if .Values.services.catalog.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.catalog.port }}
+    {{- .Values.services.catalog.port -}}
   {{- else -}}
     {{/* assume default port */}}
     {{- printf "8081" -}}
@@ -58,7 +58,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "authHost" -}}
   {{- if .Values.services.auth.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.auth.host }}
+    {{- .Values.services.auth.host -}}
   {{- else -}}
     {{/* assume one is installed with the release */}}
     {{- printf "%s-auth" .Release.Name -}}
@@ -68,7 +68,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "authPort" -}}
   {{- if .Values.services.auth.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.auth.port }}
+    {{- .Values.services.auth.port -}}
   {{- else -}}
     {{/* assume default port */}}
     {{- printf "8080" -}}
@@ -78,7 +78,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "customerHost" -}}
   {{- if .Values.services.customer.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.customer.host }}
+    {{- .Values.services.customer.host -}}
   {{- else -}}
     {{/* assume one is installed with the release */}}
     {{- printf "%s-customer" .Release.Name -}}
@@ -88,7 +88,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "customerPort" -}}
   {{- if .Values.services.customer.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.customer.port }}
+    {{- .Values.services.customer.port -}}
   {{- else -}}
     {{/* assume default port */}}
     {{- printf "8080" -}}
@@ -98,7 +98,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "ordersHost" -}}
   {{- if .Values.services.orders.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.orders.host }}
+    {{- .Values.services.orders.host -}}
   {{- else -}}
     {{/* assume one is installed with the release */}}
     {{- printf "%s-orders" .Release.Name -}}
@@ -108,7 +108,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "ordersPort" -}}
   {{- if .Values.services.orders.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.orders.port }}
+    {{- .Values.services.orders.port -}}
   {{- else -}}
     {{/* assume default port */}}
     {{- printf "8080" -}}
@@ -118,7 +118,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "reviewsHost" -}}
   {{- if .Values.services.reviews.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.reviews.host }}
+    {{- .Values.services.reviews.host -}}
   {{- else -}}
     {{/* assume one is installed with the release */}}
     {{- printf "%s-reviews" .Release.Name -}}
@@ -128,7 +128,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "reviewsPort" -}}
   {{- if .Values.services.reviews.host -}}
     {{/* a specific service is requested */}}
-    {{ .Values.services.reviews.port }}
+    {{- .Values.services.reviews.port -}}
   {{- else -}}
     {{/* assume default port */}}
     {{- printf "8080" -}}
