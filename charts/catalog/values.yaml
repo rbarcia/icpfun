@@ -11,14 +11,14 @@ service:
   externalPort: 8081
   internalPort: 8081
 
+inventory:
+  service:
+    url: http://bluecompute-inventory-inventory:8080
+
 dataloader:
   image:
     repository: ibmcase/bluecompute-dataloader
     tag: latest
-
-inventory:
-  service:
-    url:
 
 elasticsearch:
   binding:
@@ -26,6 +26,6 @@ elasticsearch:
 
 resources:
   limits:
-    memory: 128Mi
+    memory: 256Mi
   requests:
     memory: 64Mi
