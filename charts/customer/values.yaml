@@ -11,6 +11,7 @@ image:
   repository: ibmcase/bluecompute-customer
   tag: latest
   pullPolicy: Always
+  pullSecret: icpregistry
 
 service:
   name: customer
