@@ -30,12 +30,14 @@ data:
         "protocol": "http",
         "catalog": {
           "service_name": "{{ template "catalogHost" . }}:{{ template "catalogPort" . }}",
+        "protocol": "http",
           "base_path": "/micro",
           "require": [
           ]
         },
         "order": {
           "service_name": "{{ template "ordersHost" . }}:{{ template "ordersPort" . }}",
+        "protocol": "http",
           "base_path": "/micro",
           "require": [
             "oauth"
@@ -49,6 +51,7 @@ data:
         },
         "customer": {
           "service_name": "{{ template "customerHost" . }}:{{ template "customerPort" . }}",
+        "protocol": "http",
           "base_path": "/micro",
           "require": [
             "client_id",
@@ -58,6 +61,7 @@ data:
         },
         "oauth20": {
           "service_name": "{{ template "authHost" . }}:{{ template "authPort" . }}",
+        "protocol": "http",
           "base_path": "/oauth",
           "paths": {
             "authz": "/authorize",
