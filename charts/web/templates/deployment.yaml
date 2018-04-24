@@ -36,3 +36,7 @@ spec:
             path: checks
           - key: default.json
             path: default.json
+{{ if .Values.image.pullSecret }}
+      imagePullSecrets:
+      - name: {{ .Values.image.pullSecret }}
+{{ end }}

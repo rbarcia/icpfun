@@ -4,6 +4,7 @@ image:
   repository: ibmcase/bluecompute-catalog
   pullPolicy: Always
   tag: latest
+  pullSecret: icpregistry
 
 service:
   name: catalog

@@ -4,6 +4,7 @@ image:
   repository: ibmcase/bluecompute-inventory
   pullPolicy: Always
   tag: latest
+  pullSecret: icpregistry
 
 resources:
   limits:

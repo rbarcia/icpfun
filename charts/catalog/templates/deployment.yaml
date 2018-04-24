@@ -60,3 +60,7 @@ spec:
               key: binding
         - name: INVENTORYSERVICE_URL
           value: {{ template "inventoryServiceUrl" . }}
+{{ if .Values.image.pullSecret }}
+      imagePullSecrets:
+      - name: {{ .Values.image.pullSecret }}
+{{ end }}

@@ -5,7 +5,8 @@ replicaCount: 1
 image:
   repository: ibmcase/bluecompute-web
   tag: latest
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
+  pullSecret: icpregistry
 service:
   name: bluecompute-web
   type: NodePort

@@ -58,3 +58,7 @@ spec:
         {{ template "messageHubEnv" . }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}
+{{ if .Values.image.pullSecret }}
+      imagePullSecrets:
+      - name: {{ .Values.image.pullSecret }}
+{{ end }}
