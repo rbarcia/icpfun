@@ -35,7 +35,7 @@ data:
           "require": [
           ]
         },
-        "order": {
+        "orders": {
           "service_name": "{{ template "ordersHost" . }}:{{ template "ordersPort" . }}",
         "protocol": "http",
           "base_path": "/micro",
