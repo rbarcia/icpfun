@@ -19,7 +19,7 @@ podTemplate(label: 'mypod',
                 REGISTRY=`cat /var/run/configs/registry-config/registry`
 		DOCKER_USER=`cat /var/run/secrets/registry-account/username`
 		DOCKER_PASSWORD=`cat /var/run/secrets/registry-account/password`
-
+                export HELM_HOME=$HOME/.helm
                 wget --no-check-certificate https://10.10.1.10:8443/api/cli/icp-linux-amd64
                 bx plugin install icp-linux-amd64
                 helm init --client-only
